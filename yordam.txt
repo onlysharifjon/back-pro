@@ -1,0 +1,22 @@
+
+"Birinchi Projectimni yaratdim:
+```
+django-admin startproject "Project Name"
+```
+Application Yaratishim kerak:
+```
+python manage.py startapp "App Name"
+```
+"Project Name dan settings.py ni ochib ALLOWED_HOSTS ni o'zgartirish kerak:
+```"
+1)"ALLOWED_HOST = ["*"]"
+2)INSTALLED_APPS ga "App Name" ni qo'shish kerak
+3)TEMPLATES = [
+    {
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #yoki BASE_DIR / 'templates'
+    },
+]
+4)templates papka ochib olish kerak
+5)APP NAME ichidan urls.py file ochib olamiz
+6)path("", include("APP Name.urls"))
+
