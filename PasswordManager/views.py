@@ -36,6 +36,30 @@ class PasswordLevel1(APIView):
         return Response({'password': parolcha})
 
 
+class PasswordLevel3(APIView):
+    queryset = PasswordModel.objects.all()
+    # Make sure to replace 'your_app_name' with your actual app name
+    serializer = PasswordGeneratorSerializer
+
+    def get(self, request):
+        elements = ['a', 'b', 'c', 'd', 'e', 'f', 'g',
+                    'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']
+        symbols = ['!', '@', '#', '$', '%', '^', '&', '*',
+                   '(', ')', '-', '+', '=', '[', ']', '{', '}', '|', '\\', ';', ':', "'", '"', '<', '>', ',', '.', '/', '?', '`', '~', '_', '§', '±', '°', '£', '€', '¥', '¢']
+        parolcha = ''
+
+        for i in range(9):
+            parolcha += random.choice(elements)
+        for i in range(2):
+            parolcha += random.randint(0, 9)
+        for i in range(5):
+            parolcha += random.choice(symbols)
+
+        random.shuffle(parolcha)
+
+        return Response({'password': parolcha})
+
+
 # alo
 
 # Create your views here.
