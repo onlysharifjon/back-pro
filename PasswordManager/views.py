@@ -21,11 +21,7 @@ class PasswordLevel1(APIView):
         for i in range(8):
             parolcha += random.choice(elements)
 
-        # Create a dictionary with 'parol' field
-        data = {'parol': parolcha}
-        serializer = PasswordGeneratorSerializer(data)
-
-        return Response(serializer.data)
+        return Response({'password': parolcha})
 
 
 # alo

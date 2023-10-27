@@ -5,4 +5,4 @@ from .models import PasswordModel
 class PasswordGeneratorSerializer(serializers.ModelSerializer):
     class Meta:
         model = PasswordModel
-        fields = ['parol',]
+        fields = '__all__'
