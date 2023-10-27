@@ -49,18 +49,21 @@ class PasswordLevel3(APIView):
                     'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']
         symbols = ['!', '@', '#', '$', '%', '^', '&', '*',
                    '(', ')', '-', '+', '=', '[', ']', '{', '}', '|', '\\', ';', ':', "'", '"', '<', '>', ',', '.', '/', '?', '`', '~', '_', '§', '±', '°', '£', '€', '¥', '¢']
-        parolcha = ''
+        parolcha = []
 
         for i in range(9):
-            parolcha += random.choice(elements)
+            parolcha.append(random.choice(elements))
         for i in range(2):
-            parolcha += random.randint(0, 9)
+            parolcha.append(str(random.randint(0, 9)))
         for i in range(5):
-            parolcha += random.choice(symbols)
-
+            parolcha.append(random.choice(symbols))
         random.shuffle(parolcha)
+        parolcha1 = ''
+        for i in parolcha:
+            parolcha1+=i
 
-        return Response({'password': parolcha})
+
+        return Response({'password': parolcha1})
 
 
 # Create your views here.
