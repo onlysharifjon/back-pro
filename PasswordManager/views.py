@@ -20,13 +20,18 @@ class PasswordLevel1(APIView):
     def get(self, request):
         elements = ['a', 'b', 'c', 'd', 'e', 'f', 'g',
                     'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']
+        symbols = ['!', '@', '#', '$', '%', '^', '&', '*',
+                   '(', ')', '-', '+', '=', '[', ']', '{', '}', '|', '\\', ';', ':', "'", '"', '<', '>', ',', '.', '/', '?', '`', '~', '_', '§', '±', '°', '£', '€', '¥', '¢']
         parolcha = ''
 
-        for i in range(6):
+        for i in range(9):
             parolcha += random.choice(elements)
         for i in range(2):
             parolcha += random.randint(0, 9)
-            
+        for i in range(5):
+            parolcha += random.choice(symbols)
+
+        random.shuffle(parolcha)
 
         return Response({'password': parolcha})
 
