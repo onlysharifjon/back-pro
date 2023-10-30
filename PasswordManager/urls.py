@@ -1,7 +1,10 @@
 from django.urls import path
-from .views import index,PasswordLevel1
+from .views import index,PasswordLevel1, PasswordLevel2, PasswordLevel3, ALldataviews
 
 urlpatterns = [
     path('index/', index ),
-    path('password/',PasswordLevel1.as_view()),
+    path('password1/',PasswordLevel1.as_view()),
+    path('password2/', PasswordLevel2.as_view()),
+    path('password3/', PasswordLevel3.as_view()),
+    path('data/', ALldataviews.as_view()),
 ]

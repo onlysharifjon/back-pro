@@ -64,3 +64,14 @@ class PasswordLevel3(APIView):
 
 
 # Create your views here.
+
+class ALldataviews(APIView):
+    queryset = PasswordModel.objects.all()
+    # Make sure to replace 'your_app_name' with your actual app name
+    serializer = PasswordGeneratorSerializer
+
+    def get(self, request):
+        data=PasswordModel.objects.all()
+        srl_data=PasswordGeneratorSerializer(data,many=True)
+
+        return  Response(srl_data.data)

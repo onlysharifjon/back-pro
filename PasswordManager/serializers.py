@@ -6,3 +6,6 @@ class PasswordGeneratorSerializer(serializers.ModelSerializer):
     class Meta:
         model = PasswordModel
         fields = '__all__'
+
+
+
