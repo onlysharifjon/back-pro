@@ -73,5 +73,4 @@ class ALldataviews(APIView):
     def get(self, request):
         data=PasswordModel.objects.all()
         srl_data=PasswordGeneratorSerializer(data,many=True)
-
         return  Response(srl_data.data)
