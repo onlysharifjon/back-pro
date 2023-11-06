@@ -22,3 +22,11 @@ class FilterbyUser(APIView):
         info = UserApplicationpss.objects.all().filter(user_key=user_name)
         serializer = ApplicationSerializer(info, many=True).data
         return Response(serializer)
+    
+class Filter2(APIView):
+    def post(self, request):
+        app_name = request.data.get("application")
+        print(app_name)
+        info = UserApplicationpss.objects.all().filter(application = app_name)
+        serializer = ApplicationSerializer(info, many=True)
+        return Response(app_name.data)~

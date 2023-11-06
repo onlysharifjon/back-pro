@@ -11,6 +11,9 @@ class Sort_srl(Serializer):
         model = UserApplicationpss
         fields = ("password", )
 
-
+class FilterbyApplication(Serializer):
+    class Meta:
+        model = UserApplicationpss
+        fields = ("application", )
 
 
