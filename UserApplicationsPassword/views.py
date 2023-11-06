@@ -29,4 +29,5 @@ class Filter2(APIView):
         print(app_name)
         info = UserApplicationpss.objects.all().filter(application = app_name)
         serializer = ApplicationSerializer(info, many=True)
-        return Response(app_name.data)~
+        return Response(app_name.data)
+
