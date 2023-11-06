@@ -4,7 +4,7 @@ from PasswordManager.models import PasswordModel
 
 
 class UserApplicationpss(models.Model):
-    user_key = models.ForeignKey(PasswordModel, on_delete=models.CASCADE, related_name='user_applicationpss_user_key')
+    user_key = models.ForeignKey(PasswordModel, on_delete=models.CASCADE, related_name='user_applicationpss_user_key',null=True)
     application = models.CharField(max_length=32)
     password = models.CharField(max_length=32)
 
