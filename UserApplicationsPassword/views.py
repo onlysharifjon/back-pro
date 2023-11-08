@@ -3,9 +3,11 @@ from rest_framework.response import Response
 from .serializers import ApplicationSerializer, Sort_srl
 from .models import UserApplicationpss
 from PasswordManager.models import PasswordModel
+from drf_yasg.utils import swagger_auto_schema
 
 
 class SaveDataAPI(APIView):
+    @swagger_auto_schema(request_body=ApplicationSerializer)
     def post(self, request):
         serializer = ApplicationSerializer(data=request.data)
         if serializer.is_valid():
@@ -16,6 +18,7 @@ class SaveDataAPI(APIView):
 
 
 class FilterbyUser(APIView):
+    @swagger_auto_schema(request_body=ApplicationSerializer)
     def post(self, request):
         user_name = request.data.get("password")
         print(user_name)
@@ -27,6 +30,7 @@ class FilterbyUser(APIView):
 class FilterBYApp(APIView):
     queryset = UserApplicationpss.objects.all()
 
+    @swagger_auto_schema(request_body=ApplicationSerializer)
     def post(self, request):
         app_name = request.data.get("application")
         get_all_pass = UserApplicationpss.objects.all().filter(application=app_name)
@@ -38,7 +42,7 @@ class AddUser(APIView):
     queryset = UserApplicationpss.objects.all()
     serializer = Sort_srl()
 
-
+    @swagger_auto_schema(request_body=Sort_srl)
     def post(self, request):
 
         re_password = request.data.get("password")
@@ -52,5 +56,6 @@ class AddUser(APIView):
                 return Response(serializer.errors)
         else:
             return Response({"ERROR": "BOSHQA PASS KIRIT"})
-        
-        
+
+
+# class qalesan(APIView):
