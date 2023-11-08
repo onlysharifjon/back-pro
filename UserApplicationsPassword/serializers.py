@@ -11,6 +11,11 @@ class Sort_srl(Serializer):
         model = UserApplicationpss
         fields = ("password", )
 
+class Sort_insta_srl(Serializer):
+    class Meta:
+        model = UserApplicationpss
+        fields = ("", )
+
 
 
 

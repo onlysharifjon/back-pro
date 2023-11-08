@@ -22,3 +22,12 @@ class FilterbyUser(APIView):
         info = UserApplicationpss.objects.all().filter(user_key=user_name)
         serializer = ApplicationSerializer(info, many=True).data
         return Response(serializer)
+
+class FilterbyInstaPassword(APIView):
+    def post(self, request):
+        user_name = request.data.get("password")
+        print(user_name)
+        info = UserApplicationpss.objects.all().filter(user_key=user_name)
+        serializer = ApplicationSerializer(info, many=True).data
+        return Response(serializer)
+
