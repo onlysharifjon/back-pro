@@ -38,6 +38,7 @@ class AddUser(APIView):
     queryset = UserApplicationpss.objects.all()
     serializer = Sort_srl()
 
+
     def post(self, request):
 
         re_password = request.data.get("password")
@@ -51,3 +52,5 @@ class AddUser(APIView):
                 return Response(serializer.errors)
         else:
             return Response({"ERROR": "BOSHQA PASS KIRIT"})
+        
+        
